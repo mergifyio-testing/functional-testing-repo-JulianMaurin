@@ -1,0 +1,12 @@
+pull_request_rules:
+- actions:
+    queue:
+      name: default
+  conditions:
+  - base=20250717103359/test_strict_status_check/main
+  - label=queue
+  name: Queue on label
+queue_rules:
+- merge_conditions:
+  - check-success=continuous-integration/fake-ci-2
+  name: default
