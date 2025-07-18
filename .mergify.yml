@@ -1,0 +1,11 @@
+queue_rules:
+  - name: default
+    queue_conditions:
+      - label=queue
+    merge_method: squash
+
+pull_request_rules:
+  - name: Update and Merge
+    conditions: []
+    actions:
+      queue:
