@@ -1,0 +1,13 @@
+pull_request_rules:
+- actions:
+    queue:
+      name: default
+  conditions:
+  - base=20250718135339/test_strict_status_check/main
+  name: Update and Merge
+queue_rules:
+- merge_conditions: []
+  merge_method: squash
+  name: default
+  queue_conditions:
+  - label=queue
