@@ -1,0 +1,28 @@
+
+merge_queue:
+  max_parallel_checks: 5
+  allow_inplace_check
+queue_rules:
+  - name: default
+    queue_conditions:
+      - check-success=continuous-integration/fake-ci
+    merge_conditions:
+      - check-success=Code Quality & Security
+      - check-success=Test
+      - check-success=Code Coverage
+      - "#approved-reviews-by>=1"
+      - "#changes-requested-reviews-by=0"
+    batch_size: 10
+    allow_inplace_checks: false
+    batch_max_wait_time: 2 minutes
+    merge_method: squash
+pull_request_rules:
+  - name: notify when ready for queue
+    conditions:
+      - check-success=continuous-integration/fake-ci
+      - queue-position=-1
+    actions:
+      comment:
+        message: ✅ This PR is ready to be queued! Comment `@mergifyio queue` to add it
+          to the merge queue.
+priority_rules: [ ]
