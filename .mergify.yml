@@ -1,0 +1,9 @@
+merge_queue:
+  max_parallel_checks: 2
+queue_rules:
+- autoqueue: true
+  merge_conditions:
+  - status-success=continuous-integration/fake-ci
+  name: default
+  queue_conditions:
+  - label=queue
