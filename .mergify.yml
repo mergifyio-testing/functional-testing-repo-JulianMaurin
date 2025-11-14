@@ -1,0 +1,7 @@
+merge_queue:
+  max_parallel_checks: 2
+queue_rules:
+- autoqueue: true
+  name: default
+  queue_conditions:
+  - label=queue
