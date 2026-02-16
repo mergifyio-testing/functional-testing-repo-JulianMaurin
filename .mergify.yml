@@ -1,0 +1,7 @@
+pull_request_rules:
+- actions:
+    comment:
+      message: WTF? {{ author }}
+  conditions:
+  - base=20260216200236/test_comment/main
+  name: comment
