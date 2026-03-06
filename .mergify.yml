@@ -1,0 +1,23 @@
+merge_queue:
+  max_parallel_checks: 5
+partition_rules:
+- conditions:
+  - files~=^api/
+  name: backend
+- conditions:
+  - files~=^web/
+  name: frontend
+pull_request_rules:
+- actions:
+    queue:
+      name: default
+  conditions:
+  - base=20260306145517/test_batch_partitions_and_second_round/main
+  - label=queue
+  name: auto-queue
+queue_rules:
+- batch_max_wait_time: 0 s
+  batch_size: 2
+  merge_conditions:
+  - status-success=continuous-integration/fake-ci
+  name: default
