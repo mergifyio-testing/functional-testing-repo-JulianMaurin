@@ -1,0 +1,26 @@
+merge_queue:
+  max_parallel_checks: 5
+partition_rules:
+- conditions:
+  - files~=^api/
+  name: backend
+- conditions:
+  - files~=^web/
+  name: frontend
+priority_rules:
+- conditions:
+  - label=urgent
+  name: urgent
+  priority: high
+pull_request_rules:
+- actions:
+    queue:
+      name: default
+  conditions:
+  - base=20260306114929/test_partition_routing_priorities_and_external_merge/main
+  - label=queue
+  name: auto-queue
+queue_rules:
+- merge_conditions:
+  - status-success=continuous-integration/fake-ci
+  name: default
