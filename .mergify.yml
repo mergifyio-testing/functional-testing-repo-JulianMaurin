@@ -12,3 +12,4 @@ queue_rules:
 - name: default
   queue_conditions:
   - check-success=continuous-integration/fake-ci
+  update_method: rebase
