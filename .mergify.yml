@@ -1,0 +1,15 @@
+merge_queue:
+  max_parallel_checks: 3
+pull_request_rules:
+- actions:
+    queue:
+      name: default
+  conditions:
+  - base=20260308223031/test_out_of_order_speculative_completion/main
+  - label=queue
+  name: auto-queue
+queue_rules:
+- merge_conditions:
+  - status-success=continuous-integration/fake-ci
+  merge_method: squash
+  name: default
