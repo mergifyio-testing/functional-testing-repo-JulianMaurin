@@ -6,7 +6,7 @@ pull_request_rules:
       name: default
   conditions:
   - base=20260308222127/test_unqueue_conditions_and_train_reset/main
-  - label=queue
+  - label=automerge
   - '#approved-reviews-by>=1'
   name: auto-queue
 queue_rules:
