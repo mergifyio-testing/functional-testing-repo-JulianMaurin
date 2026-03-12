@@ -1,0 +1,13 @@
+merge_queue:
+  max_parallel_checks: 2
+queue_rules:
+- autoqueue: true
+  batch_max_wait_time: 0 s
+  batch_size: 3
+  merge_conditions:
+  - status-success=continuous-integration/fake-ci
+  name: default
+  queue_conditions:
+  - base=20260312092617/test_batch_formation_success_failure_and_bisection/main
+  - label=queue
+  - '#approved-reviews-by>=1'
