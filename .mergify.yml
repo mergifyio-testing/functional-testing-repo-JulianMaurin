@@ -1,0 +1,14 @@
+merge_queue:
+  max_parallel_checks: 3
+queue_rules:
+- autoqueue: true
+  batch_max_wait_time: 0 s
+  batch_size: 2
+  merge_conditions:
+  - status-success=continuous-integration/fake-ci
+  merge_method: squash
+  name: default
+  queue_conditions:
+  - base=20260313125042/test_unqueue_conditions_and_train_reset/main
+  - label=queue
+  - '#approved-reviews-by>=1'
