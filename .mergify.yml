@@ -10,5 +10,5 @@ queue_rules:
   name: default
   queue_conditions:
   - base=20260313125042/test_unqueue_conditions_and_train_reset/main
-  - label=queue
+  - label=automerge
   - '#approved-reviews-by>=1'
