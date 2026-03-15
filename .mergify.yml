@@ -1,0 +1,17 @@
+merge_queue:
+  max_parallel_checks: 5
+queue_rules:
+- merge_conditions:
+  - status-success=continuous-integration/fake-ci
+  name: default
+  queue_conditions:
+  - base=20260315104427/test_monorepo_scope_lifecycle/main
+scopes:
+  source:
+    files:
+      backend:
+        include:
+        - backend/**
+      frontend:
+        include:
+        - frontend/**
